@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cc-green: #0d9f6e;
+  --cc-green-dark: #057857;
+  --cc-blue: #2563eb;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #0f172a;
+}
+
+/* Focus ring for accessibility */
+*:focus-visible {
+  outline: 2px solid #0d9f6e;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@keyframes cc-fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes cc-pop {
+  0% { opacity: 0; transform: scale(0.96); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes cc-pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.7; }
+  70% { transform: scale(1.6); opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes cc-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes cc-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-fade-up { animation: cc-fade-up 0.5s ease-out both; }
+.animate-pop { animation: cc-pop 0.35s ease-out both; }
+.animate-float { animation: cc-float 4s ease-in-out infinite; }
+
+.cc-input {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.75rem;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+  color: #0f172a;
+  background: #fff;
+  transition: border-color .15s, box-shadow .15s;
+}
+.cc-input:focus {
+  outline: none;
+  border-color: #0d9f6e;
+  box-shadow: 0 0 0 3px rgba(13,159,110,0.15);
+}
+.cc-input::placeholder { color: #94a3b8; }
+
+/* scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
